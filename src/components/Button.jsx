@@ -13,11 +13,11 @@ export default function Button({
   
   const variants = {
     primary: 'bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500',
-    secondary: 'bg-slate-200 hover:bg-slate-300 text-slate-900 focus:ring-slate-500',
+    secondary: 'bg-slate-200 hover:bg-slate-300 dark:bg-slate-600 dark:hover:bg-slate-500 text-slate-900 dark:text-white focus:ring-slate-500',
     success: 'bg-green-600 hover:bg-green-700 text-white focus:ring-green-500',
     danger: 'bg-red-600 hover:bg-red-700 text-white focus:ring-red-500',
     warning: 'bg-yellow-600 hover:bg-yellow-700 text-white focus:ring-yellow-500',
-    outline: 'border-2 border-slate-300 hover:border-slate-400 text-slate-700 bg-white focus:ring-slate-500'
+    outline: 'border-2 border-slate-300 dark:border-slate-600 hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 focus:ring-slate-500'
   };
   
   const sizes = {

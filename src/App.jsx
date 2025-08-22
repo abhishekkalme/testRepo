@@ -119,10 +119,10 @@ function DynamicForm() {
     <>
       <Layout>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+          <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-8">
             <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-slate-800 mb-2">Create New Quiz</h1>
-              <p className="text-slate-600">Design engaging quizzes with multiple choice questions</p>
+              <h1 className="text-3xl font-bold text-slate-800 dark:text-white mb-2">Create New Quiz</h1>
+              <p className="text-slate-600 dark:text-slate-300">Design engaging quizzes with multiple choice questions</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -136,7 +136,7 @@ function DynamicForm() {
                   type="text"
                   value={groupName}
                   onChange={(e) => setGroupName(e.target.value)}
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
                   placeholder="e.g., JavaScript Fundamentals"
                 />
               </FormField>
@@ -152,19 +152,19 @@ function DynamicForm() {
                   min="1"
                   value={duration}
                   onChange={(e) => setDuration(e.target.value)}
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
                   placeholder="30"
                 />
               </FormField>
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-slate-800">Questions</h2>
+              <h2 className="text-xl font-semibold text-slate-800 dark:text-white">Questions</h2>
               
               {forms.map((form, index) => (
-                <div key={index} className="border border-slate-200 rounded-lg p-6 bg-slate-50">
+                <div key={index} className="border border-slate-200 dark:border-slate-600 rounded-lg p-6 bg-slate-50 dark:bg-slate-700">
                   <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-lg font-medium text-slate-800">Question {index + 1}</h3>
+                    <h3 className="text-lg font-medium text-slate-800 dark:text-white">Question {index + 1}</h3>
                     {forms.length > 1 && (
                       <Button
                         onClick={() => removeFormGroup(index)}
@@ -187,7 +187,7 @@ function DynamicForm() {
                       value={form.text}
                       onChange={(e) => handleChange(index, e)}
                       rows="3"
-                      className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                      className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none bg-white dark:bg-slate-600 text-slate-900 dark:text-white"
                       placeholder="Enter your question here..."
                     />
                   </FormField>
@@ -207,7 +207,7 @@ function DynamicForm() {
                           placeholder={`Option ${num}`}
                           value={form[`input${num}`]}
                           onChange={(e) => handleChange(index, e)}
-                          className="px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-600 text-slate-900 dark:text-white"
                         />
                       ))}
                     </div>
@@ -225,14 +225,14 @@ function DynamicForm() {
                       placeholder="Enter the correct answer"
                       value={form.answer}
                       onChange={(e) => handleChange(index, e)}
-                      className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-600 text-slate-900 dark:text-white"
                     />
                   </FormField>
                 </div>
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-4 justify-between mt-8 pt-6 border-t border-slate-200">
+            <div className="flex flex-wrap gap-4 justify-between mt-8 pt-6 border-t border-slate-200 dark:border-slate-600">
               <Button
                 onClick={addFormGroup}
                 variant="outline"

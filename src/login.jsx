@@ -65,11 +65,11 @@ export default function AuthPage() {
 
   return (
     <>
-      <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 px-4">
-        <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl">
+      <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 px-4 transition-colors duration-300">
+        <div className="w-full max-w-md bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-slate-800 mb-2">QuizMaster</h1>
-            <h2 className="text-xl font-semibold text-slate-600">
+            <h1 className="text-3xl font-bold text-slate-800 dark:text-white mb-2">QuizMaster</h1>
+            <h2 className="text-xl font-semibold text-slate-600 dark:text-slate-300">
               {isLogin ? "Welcome back" : "Create your account"}
             </h2>
           </div>
@@ -85,7 +85,7 @@ export default function AuthPage() {
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
                   placeholder="Enter your username"
                 />
               </FormField>
@@ -100,7 +100,7 @@ export default function AuthPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
                 placeholder="Enter your email"
               />
             </FormField>
@@ -115,7 +115,7 @@ export default function AuthPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
                 placeholder="Enter your password"
               />
             </FormField>
@@ -130,11 +130,11 @@ export default function AuthPage() {
             </Button>
           </form>
           <div className="mt-6 text-center">
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-slate-600 dark:text-slate-300">
               {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
               <button 
                 onClick={toggleForm} 
-                className="text-blue-600 hover:text-blue-700 font-medium hover:underline"
+                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium hover:underline"
               >
                 {isLogin ? "Sign up" : "Sign in"}
               </button>
