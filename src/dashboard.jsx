@@ -1,55 +1,93 @@
 import { useNavigate } from "react-router-dom";
+import Layout from "./components/Layout";
+import Button from "./components/Button";
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const username = localStorage.getItem("username");
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/");
-  };
+  const dashboardCards = [
+    {
+      title: "Create Quiz",
+      description: "Design and build custom quizzes with multiple choice questions",
+      icon: "➕",
+      color: "bg-blue-500 hover:bg-blue-600",
+      path: "/create-quiz"
+    },
+    {
+      title: "Take Quiz",
+      description: "Join and participate in quizzes using quiz codes",
+      icon: "📝",
+      color: "bg-green-500 hover:bg-green-600",
+      path: "/view"
+    },
+    {
+      title: "View Results",
+      description: "Check detailed results and performance analytics",
+      icon: "📊",
+      color: "bg-purple-500 hover:bg-purple-600",
+      path: "/group-results"
+    },
+    {
+      title: "Quiz History",
+      description: "Review your created quizzes and past attempts",
+      icon: "📚",
+      color: "bg-orange-500 hover:bg-orange-600",
+      path: "/history"
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 to-purple-200 flex items-center justify-center px-4">
-      <div className="bg-white shadow-xl rounded-2xl p-8 max-w-md w-full text-center">
-        <h2 className="text-3xl font-bold text-purple-700 mb-8">🎓 Welcome to Quiz Dashboard</h2>
-
-        <div className="space-y-4">
-          <button
-            onClick={() => navigate("/create-quiz")}
-            className="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 rounded-xl shadow"
-          >
-            ➕ Create Quiz
-          </button>
-
-          <button
-            onClick={() => navigate("/view")}
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl shadow"
-          >
-            📝 Take Quiz
-          </button>
-
-          <button
-            onClick={() => navigate("/group-results")}
-            className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-xl shadow"
-          >
-            📊 View Result Summary
-          </button>
-
-          <button
-            onClick={() => navigate("/history")}
-            className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded-xl shadow"
-          >
-            📚 View History
-          </button>
-
-          <button
-            onClick={handleLogout}
-            className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded-xl shadow"
-          >
-            🚪 Logout
-          </button>
+    <Layout>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-slate-800 mb-4">
+            Welcome back, {username}! 👋
+          </h1>
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            Create engaging quizzes, track performance, and manage your learning experience all in one place.
+          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {dashboardCards.map((card, index) => (
+            <div
+              key={index}
+              onClick={() => navigate(card.path)}
+              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer border border-slate-200 hover:border-slate-300 p-6 group"
+            >
+              <div className={`w-12 h-12 ${card.color} rounded-lg flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition-transform`}>
+                {card.icon}
+              </div>
+              <h3 className="text-lg font-semibold text-slate-800 mb-2">{card.title}</h3>
+              <p className="text-sm text-slate-600">{card.description}</p>
+            </div>
+          ))}
+        </div>
+        </div>
+        {/* Quick Stats Section */}
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+          <h2 className="text-xl font-semibold text-slate-800 mb-4">Quick Actions</h2>
+          <div className="flex flex-wrap gap-3">
+            <Button 
+              onClick={() => navigate("/create-quiz")} 
+              variant="primary"
+            >
+              🚀 Create New Quiz
+            </Button>
+            <Button 
+              onClick={() => navigate("/view")} 
+              variant="outline"
+            >
+              🔍 Join Quiz
+            </Button>
+            <Button 
+              onClick={() => navigate("/history")} 
+              variant="secondary"
+            >
+              📈 View Analytics
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
